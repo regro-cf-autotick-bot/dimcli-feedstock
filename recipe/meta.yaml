@@ -1,5 +1,5 @@
 {% set name = "dimcli" %}
-{% set version = "0.9.5" %}
+{% set version = "0.9.6" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dimcli-{{ version }}.tar.gz
-  sha256: a6c57ec1f2a1e64831f6339d69a36eb3b3cce72366a861371f639b5bc3e8549c
+  sha256: 69e9f0cce075d204d2d3215ecd0a8f9214603ef36f5c1e7e79df50abef87dc06
 
 build:
   number: 0
@@ -17,11 +17,6 @@ build:
     - dimcli = dimcli.main_cli:main_cli
     - dimcli_quicktest = dimcli.tests.quicktest:main
   script:
-    {% set reqfile = "requirements.txt" %}
-    {% set reqsource = "dimcli.egg-info/requires.txt" %}
-    # IF {{ reqfile }} is NOT PRESENT, COPY {{ reqfile }} from {{ reqsource }}
-    - if [ ! -f {{ reqfile }} ] && [ -f {{ reqsource }} ]; then cp {{ reqsource }} {{ reqfile }}; fi  # [not win]
-    - copy dimcli.egg-info\requires.txt {{ reqfile }}  # [win]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
