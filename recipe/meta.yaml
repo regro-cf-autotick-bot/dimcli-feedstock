@@ -1,5 +1,5 @@
 {% set name = "dimcli" %}
-{% set version = "0.9.7" %}
+{% set version = "0.9.7.2" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dimcli-{{ version }}.tar.gz
-  sha256: db1607a0a8169f311b79709f699d6ef0ce90a924e4ac76aa0e2bb61ef4b27368
+  sha256: bce31ef4e98745ccf775521b37f2f90a0b0f0fa7f4eb424db91d9a3d61fd2c3c
 
 build:
   number: 0
