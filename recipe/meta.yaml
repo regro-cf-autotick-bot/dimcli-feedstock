@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dimcli-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dimcli-{{ version }}.tar.gz
   sha256: 2933f2a3f31040778d5993956026cffbd25f1e406d885324c1dc5390ad8646bb
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - dimcli = dimcli.main_cli:main_cli
@@ -22,9 +22,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - click
     - ipython
     - packaging
@@ -43,6 +43,7 @@ test:
     - dimcli --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/digital-science/dimcli
